@@ -76,7 +76,7 @@ http://localhost:3000
 ## 👤 Author
 
 **Your Name**
-GitHub: [\[@your-username\](https://github.com/your-username)](https://github.com/mohan7401647399)
+GitHub: https://github.com/mohan7401647399
 Email: mtm.kcs@gmail.com
 
 ---
