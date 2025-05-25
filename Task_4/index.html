@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body class="bg-secondary min-vh-100 d-flex flex-column">
+    <div class="d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+        <main class="bg-white p-2  border border-success rounded w-50">
+            <h1 class="text-center border rounded bg-success p-3">Registration Form</h1>
+            <form id="registerForm" class="d-flex flex-column p-2 w-100 justify-content-center align-items-center">
+                <label for="email" class="font-weight-bold">Email</label>
+                <input type="email" id="email" placeholder="Email" required class="m-1 p-1 border border-dark rounded w-75" />
+                <label for="password" class="font-weight-bold">Password</label>
+                <input type="password" id="password" placeholder="Password" required class="m-1 p-1 border border-dark rounded w-75" />
+                <label for="age" class="font-weight-bold">Age</label>
+                <input type="number" id="age" placeholder="Age" required class="m-1 p-1 border border-dark rounded w-75" />
+                <label for="mobile" class="font-weight-bold">Mobile</label>
+                <input type="number" name="mobile" placeholder="Mobile" id="mobile" class="m-1 p-1 border border-dark rounded w-75">
+                <button type="submit" class="btn btn-primary mt-2">Register</button>
+                <p id="errorMsg" class="p-1"></p>
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>

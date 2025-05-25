@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html & CSS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        main section img {
+            animation: fadeIn 1s ease-in;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        main section img:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        main section:nth-child(even) img {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <div class="h-100 d-flex flex-column">
+
+        <header class="font-weight-bold display-4 text-center p-2 bg-info">Header</header>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="bg-warning flex-grow-1 overflow-auto d-flex flex-column align-items-center p-3">
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus sapiente recusandae
+                        earum pariatur dolore, alias non nam blanditiis numquam deserunt dicta, saepe repellat
+                        repellendus reiciendis distinctio modi optio culpa iure?
+                    </article>
+                </span>
+                <img src="https://picsum.photos/id/237/200/300" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate possimus ullam facilis
+                        natus ipsa. Molestias minima veritatis adipisci, nam nemo voluptatibus accusantium, mollitia
+                        placeat, quas odit consequatur pariatur libero repellendus.</article>
+                </span>
+                <img src="https://picsum.photos/seed/picsum/200/300" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo maxime illo eum facilis
+                        id dolorem sint, dignissimos ullam vitae ab sapiente. Eveniet, blanditiis ab. Suscipit sunt sint
+                        itaque corrupti incidunt?</article>
+                </span>
+                <img src="https://picsum.photos/200/300?grayscale" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, ducimus. Asperiores
+                        cupiditate non aliquid pariatur minus. Excepturi ipsa placeat delectus id fuga expedita, nobis,
+                        odio sit facilis ducimus iusto sint?</article>
+                </span>
+                <img src="https://picsum.photos/200/300/?blur" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur dicta eaque reiciendis
+                        impedit delectus. Excepturi ducimus iusto qui impedit accusantium, illum omnis laudantium quis
+                        asperiores voluptatem natus voluptates minima atque!</article>
+                </span>
+                <img src="https://picsum.photos/id/870/200/300?grayscale&blur=2" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+            <section
+                class="mb-1 text-center d-flex flex-column flex-md-row justify-content-center align-items-center p-1 w-75">
+                <span class="mb-3 mb-md-0 mr-md-4">
+                    <h2>Section</h2>
+                    <article>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate dolores ipsum beatae
+                        perferendis est molestiae ducimus, odit tempora porro repudiandae obcaecati nesciunt accusamus
+                        voluptatum. Iusto ut porro vero dolores unde!</article>
+                </span>
+                <img src="https://picsum.photos/id/237/200/300" alt="image" class="img-fluid"
+                    style="max-width: 200px; height:auto;">
+            </section>
+        </main>
+
+        <footer class=" font-weight-bold text-center p-2 bg-primary">Footer</footer>
+    </div>
+</body>
+
+</html>

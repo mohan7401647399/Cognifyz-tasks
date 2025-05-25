@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 >User Registration Form</h1>
+
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label>Gender:</label>
+        <div class="radio-group">
+            <span >
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+            </span>
+            <span >
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="female">
+            </span>
+            <span >
+                <label for="other">Other</label>
+                <input type="radio" id="other" name="gender" value="other">
+            </span>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="errorContainer" class="error"></div>
+
+    <div id="successMessage" class="success">Form submitted successfully!</div>
+    <div id="userDataContainer" class="data">
+        <h3 >Submitted Data:</h3>
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Age:</strong> <span id="displayAge"></span></p>
+        <p><strong>Gender:</strong> <span id="displayGender"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Hide previous messages
+            document.getElementById('errorContainer').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Get form values
+            const name = document.getElementById('name').value.trim(),
+                email = document.getElementById('email').value.trim(),
+                age = document.getElementById('age').value.trim(),
+                gender = document.querySelector('input[name="gender"]:checked');
+
+            // Client-side validation
+            const errors = [];
+
+            if (!name) errors.push('Name is required');
+
+            if (!email) {
+                errors.push('Email is required');
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                errors.push('Please enter a valid email address');
+            }
+
+            if (!age) {
+                errors.push('Age is required');
+            } else if (isNaN(age)) {
+                errors.push('Age must be a number');
+            } else if (age < 18) {
+                errors.push('You must be at least 18 years old');
+            }
+
+            if (!gender) errors.push('Gender is required');
+
+            // Display errors if any
+            if (errors.length > 0) {
+                const errorContainer = document.getElementById('errorContainer');
+                errorContainer.innerHTML = `
+                    <h3 style="margin-top: 0;">Please fix the following errors:</h3>
+                    <ul style="margin-bottom: 0;">
+                        ${errors.map(error => `<li>${error}</li>`).join('')}
+                    </ul>
+                `;
+                errorContainer.style.display = 'block';
+                return;
+            }
+
+            // Prepare data for submission
+            const formData = {
+                name,
+                email,
+                age,
+                gender: gender.value
+            };
+
+            // Send data to server
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Display success message
+                        document.getElementById('successMessage').style.display = 'block';
+
+                        // Display submitted data
+                        document.getElementById('displayName').textContent = formData.name;
+                        document.getElementById('displayEmail').textContent = formData.email;
+                        document.getElementById('displayAge').textContent = formData.age;
+                        document.getElementById('displayGender').textContent = formData.gender;
+                        document.getElementById('userDataContainer').style.display = 'block';
+
+                        // Reset form
+                        document.getElementById('userForm').reset();
+                    } else if (data.errors) {
+                        // Display server-side errors
+                        const errorContainer = document.getElementById('errorContainer');
+                        errorContainer.innerHTML = `
+                        <h3 style="margin-top: 0;">Please fix the following errors:</h3>
+                        <ul style="margin-bottom: 0;">
+                            ${data.errors.map(error => `<li>${error}</li>`).join('')}
+                        </ul>
+                    `;
+                        errorContainer.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while submitting the form');
+                });
+        });
+    </script>
+</body>
+
+</html>
