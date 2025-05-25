@@ -7,6 +7,6 @@ const authenticationToken = require('../middleware/userProtect')
 //  routes
 router.post('/register', registerUser)
     .post('/login', loginUser)
-    .get('/users', authenticationToken, getUsers)
+    .get('/', authenticationToken, getUsers)
 
 module.exports = router
