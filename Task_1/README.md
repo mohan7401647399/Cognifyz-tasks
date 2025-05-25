@@ -75,7 +75,7 @@ http://localhost:3000
 
 ## 👤 Author
 
-**Your Name**
+**Mohan R**
 GitHub: https://github.com/mohan7401647399
 Email: mtm.kcs@gmail.com
 
